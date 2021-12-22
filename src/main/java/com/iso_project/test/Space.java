@@ -8,15 +8,6 @@ public class Space {
 	private boolean allowedCapacity;
 	
 	
-	
-	public Space(boolean legislationCapacity, boolean planetSpaceCapacity, boolean restrictionOnConfinament,
-			boolean allowedCapacity) {
-		super();
-		this.legislationCapacity = legislationCapacity;
-		this.planetSpaceCapacity = planetSpaceCapacity;
-		this.restrictionOnConfinament = restrictionOnConfinament;
-		this.allowedCapacity = allowedCapacity;
-	}
 	public boolean isLegislationCapacity() {
 		return legislationCapacity;
 	}
