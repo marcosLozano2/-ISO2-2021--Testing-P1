@@ -9,15 +9,7 @@ public class Person {
 	private boolean hasVaccinationCard;
 	
 	
-	public Person(boolean healthy, boolean symptom, boolean contactWithInfected, boolean passedCovid,
-			boolean hasVaccinationCard) {
-		
-		this.healthy = healthy;
-		this.symptom = symptom;
-		this.contactWithInfected = contactWithInfected;
-		this.passedCovid = passedCovid;
-		this.hasVaccinationCard = hasVaccinationCard;
-	}
+	
 	public boolean isHealthy() {
 		return healthy;
 	}

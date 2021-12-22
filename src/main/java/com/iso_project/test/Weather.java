@@ -7,14 +7,7 @@ public class Weather {
 	private boolean waterPrecipitation;
 	private boolean snowPrecipitation;
 	private boolean cloudy;
-	public Weather(int temperature, double humidity, boolean waterPrecipitation, boolean snowPrecipitation,boolean cloudy) {
-		super();
-		this.temperature = temperature;
-		this.humidity = humidity;
-		this.waterPrecipitation = waterPrecipitation;
-		this.snowPrecipitation = snowPrecipitation;
-		this.cloudy=cloudy;
-	}
+	
 	
 	public boolean isCloudy() {
 		return cloudy;

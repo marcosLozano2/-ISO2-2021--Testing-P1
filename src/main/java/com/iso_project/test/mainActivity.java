@@ -8,54 +8,30 @@ public class mainActivity {
 		
 		String activity="";
 		
-		Person person=new Person(false,false,false,false,false);
-		Weather weather= new Weather(0, 1.0, false, false,false);
+		Person person=new Person();
+		Weather weather= new Weather();
 		Space space= new Space(false, false, false, false);
-		
-		if(person.isHealthy()&&!person.isSymptom()&&!person.isContactWithInfected()&&person.isPassedCovid()&&person.isHasVaccinationCard()) {
-			activity="all";
-		}else {
-			activity="none";
-		}
-		
-		if(weather.getTemperature()<0&&weather.getHumidity()<0.15&&(weather.isSnowPrecipitation()||weather.isWaterPrecipitation())) {
-			activity="stay at home";
-		}
-		
-		if(weather.getTemperature()<0&&weather.getHumidity()<0.15&&!(weather.isSnowPrecipitation()||weather.isWaterPrecipitation())&& space.isLegislationCapacity()) {
-			activity="go skiing";
-		}
-		
-		if(weather.getTemperature()>=0&&weather.getTemperature()<=15&&!weather.isWaterPrecipitation()&&space.isPlanetSpaceCapacity()) {
-			activity="go hiking";
-		}
-		
-		if(weather.getTemperature()>=15&&weather.getTemperature()<=25&&!weather.isWaterPrecipitation()&&!weather.isCloudy()&&!(weather.getHumidity()>0.6)&&!space.isRestrictionOnConfinament()) {
-			activity="go sightseeing in the open air";
-		}
-		
-		if(weather.getTemperature()>30&&!weather.isWaterPrecipitation()&& space.isAllowedCapacity()) {
-			activity="go to the beach or the swimming pool";
-		}else if(!space.isAllowedCapacity()) {
-			activity="go to the beach";
-		}
-		
-		if((weather.getTemperature()<35&&weather.getTemperature()>20)&&!weather.isWaterPrecipitation()&&space.isAllowedCapacity()) {
-			activity="go for a beer";
-		}
 	
 
 	}
 	
 	public String personAvailability(Person person,String activity) {
 		
-		if(person.isHealthy()&&!person.isSymptom()&&!person.isContactWithInfected()&&person.isPassedCovid()&&person.isHasVaccinationCard()) {
+		if(isHealthy(person)&&!person.isSymptom()&&!person.isContactWithInfected()&&person.isPassedCovid()&&person.isHasVaccinationCard()) {
 			activity="all";
 		}else {
 			activity="none";
 		}
 		
 		return activity;
+	}
+	
+	public static  boolean isHealthy(Person person) {
+		if(person.isHealthy()) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 	
 	public String temperatureBelow0_humidityBelow15_thereIsPrecipitation(Weather weather,String activity) {
@@ -65,6 +41,14 @@ public class mainActivity {
 		}
 		
 		return activity;
+	}
+	
+	public static boolean weatherTemperatureBelow0(Weather weather){
+		if(weather.getTemperature()<0) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 	
 public String temperatureBelow0_humidityBelow15_thereIsNoPrecipitation_legislationCapacityNotExceeded(Weather weather,Space space,String activity) {
@@ -114,8 +98,6 @@ public String temperatureAbove30_noWaterPrecipitation_swimmingPoolAllowedCapacit
 		
 		return activity;
 	}
-
-	
-	
-
 }
+
+	

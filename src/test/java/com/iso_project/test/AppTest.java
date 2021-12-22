@@ -1,5 +1,7 @@
 package com.iso_project.test;
 
+import org.junit.Assert;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -10,29 +12,31 @@ import junit.framework.TestSuite;
 public class AppTest 
     extends TestCase
 {
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
+    
+	public  void testIsHealthy() {
+		mainActivity main = new mainActivity();
+		Person person=new Person();
+		person.setHealthy(true);
+		
+		Assert.assertTrue(mainActivity.isHealthy(person));
+		
+		person.setHealthy(false);
+		
+		Assert.assertFalse(mainActivity.isHealthy(person));
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
+	}
+    
+	public  void testWeatherTemperatureBelow0() {
+		mainActivity main = new mainActivity();
+		Weather weather=new Weather();	
+		weather.setTemperature(-5);
+		
+		Assert.assertTrue(mainActivity.weatherTemperatureBelow0(weather));
+		
+		weather.setTemperature(5);
+		
+		Assert.assertFalse(mainActivity.weatherTemperatureBelow0(weather));
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
+	}
+    
 }
